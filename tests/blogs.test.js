@@ -13,10 +13,14 @@ afterEach(async() => {
 });
 
 
-test('When logged in can see blog create form', async () => {
-    await page.login();
-    await page.click('.btn-floating[href="/blogs/new"]');
-    let label = await page.$eval('form label:nth-child(1)', el => el.innerText);
-    expect(label).toEqual('Blog Title');
-});
+describe('When logged in', async() => {
+    beforeEach(async() => {
+        await page.login();
+        await page.click('.btn-floating[href="/blogs/new"]');
+    });
 
+    test('Can see blog create form', async () => {
+        const label = await page.$eval('form label:nth-child(1)', el => el.innerText);
+        expect(label).toEqual('Blog Title');
+    });
+});
