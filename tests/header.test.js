@@ -9,8 +9,8 @@ beforeEach(async () => {
   await pageProxy.goto("http://localhost:3000");
 });
 
-afterEach(async () => {
-  await pageProxy.close();
+afterEach(() => {
+  pageProxy.close();
 });
 
 test("Ensure that header has correct text", async () => {

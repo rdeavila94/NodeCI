@@ -8,8 +8,8 @@ beforeEach(async () => {
   await page.goto("http://localhost:3000");
 });
 
-afterEach(async () => {
-  await page.close();
+afterEach(() => {
+  page.close();
 });
 
 describe("When logged in", async () => {
